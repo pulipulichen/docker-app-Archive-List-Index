@@ -12,6 +12,8 @@ const DirectoryTo7z = require('./archive-list/DirectoryTo7z')
 const ArchiveToDirectory = require('./archive-list/ArchiveToDirectory')
 const RemoveList = require('./archive-list/RemoveList')
 
+const CopyIndexFiles = require('./archive-list/CopyIndexFiles')
+
 // convert a.tif -thumbnail 64x64^ -gravity center -extent 64x64 b.ico
 
 // -------------------------------------------------------------
@@ -64,15 +66,9 @@ let main = async function () {
 
         // =========
 
-        // check if there are note.xlsx in the folder
-        let noteFilePath = path.join(directoryPath + ".bak", path.basename(directoryPath) + '.note.xlsx')
-        // console.log(noteFilePath, fs.existsSync(noteFilePath))
-        if (fs.existsSync(noteFilePath)) {
-          if (ENABLE_GDRIVE) {
-            fs.copyFileSync(noteFilePath, path.join(gdriveArchiveDir, path.basename(noteFilePath)))
-          }
-          fs.renameSync(noteFilePath, path.join(directoryPath, path.basename(noteFilePath)))
-        }
+        CopyIndexFiles(directoryPath, ENABLE_GDRIVE)
+
+        // =========
 
         // Remove the backup directory
         // fs.rmdirSync(directoryPath + '.bak', { recursive: true });
