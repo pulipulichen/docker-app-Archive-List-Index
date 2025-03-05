@@ -66,7 +66,7 @@ let main = async function () {
 
         // =========
 
-        CopyIndexFiles(directoryPath, ENABLE_GDRIVE)
+        CopyIndexFiles(directoryPath, gdriveArchiveDir, ENABLE_GDRIVE)
 
         // =========
 

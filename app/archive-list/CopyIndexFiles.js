@@ -10,7 +10,7 @@ const isIndexFile = function (file) {
     file.startsWith('cluster-windows')
 }
 
-const CopyIndexFiles = function (directoryPath, ENABLE_GDRIVE = false) {
+const CopyIndexFiles = function (directoryPath, gdriveArchiveDir, ENABLE_GDRIVE = false) {
     let fileList = ListFiles(path.join(directoryPath + ".bak"))
 
     for (let file of fileList) {
