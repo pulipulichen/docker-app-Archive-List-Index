@@ -4,7 +4,7 @@ services:
     image: pudding/docker-app:docker-app-Archive-List-Index-20250223.175902
     tty: true
     command: node /app/index.js "/input/__INPUT__"
-    user: "${UID}:${GID}"  # 這一行是關鍵
+    user: "${UID}:${GID}"
     environment:
       - CONTAINER_NAME=docker-app-archive-list-index-app
       - LOCAL_VOLUMN_PATH=/input/
