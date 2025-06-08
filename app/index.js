@@ -24,6 +24,8 @@ const ENABLE_GDRIVE = true
 
 
 let main = async function () {
+  await ShellExec('id -u')
+  await ShellExec('id -g')
   
   let files = GetExistedArgv()
   for (let i = 0; i < files.length; i++) {

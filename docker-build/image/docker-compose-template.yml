@@ -8,7 +8,7 @@ services:
     environment:
       - CONTAINER_NAME=docker-app-archive-list-index-app
       - LOCAL_VOLUMN_PATH=/input/
-      - RUN_COMMAND=id -u
+      - RUN_COMMAND=node /app/index.js
     volumes: 
       - ./app:/app/
       - __SOURCE__:/input/
